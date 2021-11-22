@@ -1,11 +1,13 @@
 import React from "react";
+import profilepicture from "../../assets/about1.jpeg";
+import normalpicture from "../../assets/about2.jpeg";
 
 const Showcase = () => {
   return (
-    <section>
+    <section className="showcased">
       <div className="showcaseTop">
         <div className="showcaseProfilePicture">
-          <img src={""} alt="dp"></img>
+          <img src={profilepicture} alt="dp"></img>
         </div>
         <div className="showcaseDetails">
           <h2>Max Mustermann</h2>
@@ -14,22 +16,28 @@ const Showcase = () => {
             <p>-</p>
             <p>14.02.2021</p>
           </div>
+          <p className='showcaseAbout'>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua.
+        </p>
         </div>
+       
       </div>
       <div className="showcaseBottom">
         <div className="showcaseLeft">
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
         </div>
         <div className="showcaseMiddle">
-          <div className="showcaseTextContainer">
+          <div className="showcaseimagecontainer showcaseTextContainer">
             <p>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
@@ -44,27 +52,26 @@ const Showcase = () => {
             </p>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
         </div>
         <div className="showcaseRight">
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
           <div className="showcaseimagecontainer">
-            <img src={""} alt="img1"></img>
+            <img src={normalpicture} alt="img1"></img>
           </div>
         </div>
       </div>
     </section>
   );
 };
-
 
 export default Showcase;

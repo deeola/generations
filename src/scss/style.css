@@ -1050,4 +1050,74 @@ footer .footerRight ul li a {
   font-size: 20px;
   font-weight: 500;
 }
+
+.showcased {
+  width: 75%;
+  margin: 40px auto;
+}
+
+.showcased .showcaseTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.showcased .showcaseTop .showcaseProfilePicture img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.showcased .showcaseTop .showcaseDetails {
+  margin-left: 40px;
+  padding-top: 20px;
+}
+
+.showcased .showcaseTop .showcaseDetails .Birth_death {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0px;
+}
+
+.showcased .showcaseTop .showcaseDetails .showcaseAbout {
+  width: 70%;
+}
+
+.showcased .showcaseBottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 100px;
+}
+
+.showcased .showcaseBottom .showcaseLeft, .showcased .showcaseBottom .showcaseRight, .showcased .showcaseBottom .showcaseMiddle {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.showcased .showcaseBottom .showcaseLeft .showcaseimagecontainer, .showcased .showcaseBottom .showcaseRight .showcaseimagecontainer, .showcased .showcaseBottom .showcaseMiddle .showcaseimagecontainer {
+  margin-top: 20px;
+}
+
+.showcased .showcaseBottom .showcaseLeft .showcaseTextContainer, .showcased .showcaseBottom .showcaseRight .showcaseTextContainer, .showcased .showcaseBottom .showcaseMiddle .showcaseTextContainer {
+  border: 2px solid seagreen;
+  padding: 10px;
+}
+
+.showcased .showcaseBottom .showcaseLeft .showcaseTextContainer p, .showcased .showcaseBottom .showcaseRight .showcaseTextContainer p, .showcased .showcaseBottom .showcaseMiddle .showcaseTextContainer p {
+  line-height: 1.7;
+}
 /*# sourceMappingURL=style.css.map */

@@ -34,7 +34,7 @@ const Login = () => {
     Validate
   );
 
-  const { mainusername, mainpassword } = signValues;
+  const { email, password } = signValues;
   return (
     <section className="login" style={mystyle}>
       <div className="login-container">
@@ -46,12 +46,12 @@ const Login = () => {
               placeholder="E-mail"
               type="email"
               onChange={handleChangeSign}
-              id="username"
-              name="mainusername"
-              value={mainusername}
+              id="email"
+              name="email"
+              value={email}
             ></input>
-            {error.mainusername && (
-              <p className="error">{error.mainusername}</p>
+            {error.email && (
+              <p className="error">{error.email}</p>
             )}
           </div>
           <div className="form-control">
@@ -60,11 +60,11 @@ const Login = () => {
               type="password"
               placeholder="password"
               id="password"
-              name="mainpassword"
-              value={mainpassword}
+              name="password"
+              value={password}
             ></input>
-            {error.mainpassword && (
-              <p className="error">{error.mainpassword}</p>
+            {error.password && (
+              <p className="error">{error.password}</p>
             )}
           </div>
           

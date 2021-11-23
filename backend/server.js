@@ -21,13 +21,13 @@ connection.once("open", () => {
 //require
 const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
-const shopRouter = require("./routes/shop");
+const showcaseRouter = require("./routes/showcase");
 
 
 //use
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
-app.use("/shopfiles", shopRouter);
+app.use("/showcase", showcaseRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

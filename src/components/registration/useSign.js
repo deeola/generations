@@ -1,9 +1,20 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+import { useEffect, useState, useContext} from "react";
 import { useNavigate } from "react-router";
+import AuthContext from "../context/auth/authContext";
+import AlertContext from "../context/alert/alertContext";
+
+
 
 const useSign = (callback, ValidateSign) => {
   const history = useNavigate();
+
+  const authContext = useContext(AuthContext)
+  const alertContext = useContext(AlertContext)
+
+
+const {setAlert} = alertContext;
+  const {register,myerror,clearErrors, isAuthenticated} = authContext
 
   //GENERAL
 
@@ -21,6 +32,7 @@ const useSign = (callback, ValidateSign) => {
   //handle change event
 
   const handleChange = (e) => {
+
     const { name, value } = e.target;
     setValue({
       ...values,
@@ -30,31 +42,37 @@ const useSign = (callback, ValidateSign) => {
 
   //Set to local storage
 
-  const signUpLocal = () => {
-    localStorage.setItem("SignUp", JSON.stringify(values));
-  };
 
   //On submit Event
 
-  const user = values;
+  const users = values;
+
+
+  useEffect(() => {
+
+    if(isAuthenticated){
+      history("/");
+    }
+    if(myerror === 'User already exists') {
+      setAlert(myerror, 'danger')
+      clearErrors()
+    }
+
+    // eslint-disable-next-line
+  },[myerror, isAuthenticated, history])
 
   const onSubmit = (e) => {
     setError(ValidateSign(values));
+    register(users)
     e.preventDefault();
-    axios
-      .post("http://localhost:5500/users", user)
-      .then((res) => console.log(res.data))
-      .catch((error) => {
-        console.log(error);
-      });
+    
     setIsSubmitting(true);
   };
 
   useEffect(() => {
     if (Object.keys(error).length === 0 && isSubmitting) {
       callback();
-      signUpLocal();
-      history("/Login");
+      // history("/Login");
     }
     // eslint-disable-next-line
   }, [error]);

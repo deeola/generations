@@ -11,27 +11,42 @@ import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 import Errorpage from "./components/error/Errorpage";
 import Showcase from "./components/showcase/Showcase";
+import AuthState from "./components/context/auth/AuthState";
+import AlertState from "./components/context/alert/AlertState";
+import Alerts from "./components/registration/Alerts";
+import setAuthToken from "./utils/setAuthToken";
+import PrivateRoute from "./components/routing/PrivateRoute";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/showcase" element={<Showcase />} />
-          <Route path="/forgot-password" element={<Forgot />} />
-          <Route path="/errorpage" element={<Errorpage />} />
-         
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthState>
+      <AlertState>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Alerts />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route exact path="/showcase" element={<PrivateRoute />}>
+                <Route exact path="/showcase" element={<Showcase />} />
+              </Route>
+              <Route path="/forgot-password" element={<Forgot />} />
+              <Route path="/errorpage" element={<Errorpage />} />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </AlertState>
+    </AuthState>
   );
 }
 

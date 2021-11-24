@@ -8,3 +8,15 @@ export const LOGOUT = "LOGOUT";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
+
+export const ADD_PROFILE = 'ADD_PROFILE';
+export const DELETE_PROFILE = 'DELETE_PROFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const FILTER_PROFILES = 'FILTER_PROFILES';
+export const CLEAR_FILTER = 'CLEAR_FILTER';
+export const SET_CURRENT = 'SET_CURRENT';
+export const CLEAR_CURRENT = 'CLEAR_CURRENT';
+export const CONTACT_ERROR = 'CONTACT_ERROR';
+
+export const GET_PROFILES = 'GET_PROFILES';
+export const CLEAR_PROFILES = 'CLEAR_PROFILES'

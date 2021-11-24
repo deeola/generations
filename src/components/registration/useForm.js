@@ -35,7 +35,7 @@ const useForm = (callback, Validate) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      history("/");
+     history("/");
     }
     if (myerror === "Invalid Credentials") {
       setAlert(myerror, "danger");

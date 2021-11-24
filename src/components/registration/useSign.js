@@ -51,7 +51,7 @@ const {setAlert} = alertContext;
   useEffect(() => {
 
     if(isAuthenticated){
-      history("/");
+     history("/");
     }
     if(myerror === 'User already exists') {
       setAlert(myerror, 'danger')

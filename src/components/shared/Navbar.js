@@ -1,10 +1,18 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import logo from "../../assets/logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import AuthContext from "../context/auth/authContext";
+import ProfileContext from "../context/profile/profileContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
+  const profileContext = useContext(ProfileContext);
+
+  const {profiles, getProfiles} = profileContext
+
+  useEffect(( ) => {
+getProfiles()
+  },[])
 
   const { isAuthenticated, logout, user } = authContext;
 
@@ -14,13 +22,21 @@ const Navbar = () => {
 
   const authLinks = (
     <Fragment>
-      <li>Hello {user && user.username}</li>
+      <li>Hello, {user && user.username}</li>
+      {
+        profiles.length === 0 && <li>
+        <NavLink className="myLink" to="/create-profile">
+          Create Form
+        </NavLink>
+      </li> 
+      }
       <li>
         <a onClick={onLogout} href="#!">
           <i className="fas fa-sign-out-alt"></i>
           <span className="hide-sm">Logout</span>
         </a>
       </li>
+      
     </Fragment>
   );
 

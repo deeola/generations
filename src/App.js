@@ -16,6 +16,9 @@ import AlertState from "./components/context/alert/AlertState";
 import Alerts from "./components/registration/Alerts";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import ShowcaseForm from "./components/registration/ShowcaseForm";
+import ProfileState from "./components/context/profile/ProfileState";
+import FileUpload from "./components/registration/FileUpload";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -25,26 +28,39 @@ function App() {
   return (
     <AuthState>
       <AlertState>
+        <ProfileState>
         <Router>
           <div className="App">
             <Navbar />
+            {/* <FileUpload /> */}
             <Alerts />
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route exact path="/shop" element={<Shop />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/contact" element={<Contact />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/register" element={<Register />} />
               <Route exact path="/showcase" element={<PrivateRoute />}>
                 <Route exact path="/showcase" element={<Showcase />} />
               </Route>
+              <Route exact path="/create-profile" element={<PrivateRoute />}>
+                <Route exact path="/create-profile" element={<ShowcaseForm />} />
+              </Route>
+              <Route exact path="/upload" element={<PrivateRoute />}>
+                <Route exact path="/upload" element={<FileUpload/>} />
+              </Route>
+              
+
+              {/* <PrivateRoute exact path="/showcase" element={<Showcase />} /> */}
               <Route path="/forgot-password" element={<Forgot />} />
               <Route path="/errorpage" element={<Errorpage />} />
+              
             </Routes>
             <Footer />
           </div>
         </Router>
+        </ProfileState>
       </AlertState>
     </AuthState>
   );

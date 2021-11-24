@@ -28,7 +28,7 @@ router.route("/").get(auth, async (req, res) => {
 router.route("/").post(auth, async (req, res) => {
 
 
-		const { firstname, lastname, dateOfBirth, dateofDeath,profileMessage,longMessage } = req.body;
+		const { firstname, lastname, dateOfBirth, dateofDeath,profileMessage,longMessage} = req.body;
 
 		try {
 			const newShowcase = new Showcase({
@@ -38,6 +38,7 @@ router.route("/").post(auth, async (req, res) => {
 				dateofDeath,
         profileMessage,
         longMessage,
+
 				user: req.user.id
 			});
 
@@ -78,6 +79,7 @@ router.route("/:id").put(auth, async(req, res) => {
   if (dateofDeath) showcaseFields.dateofDeath= dateofDeath;
   if (profileMessage) showcaseFields.profileMessage = profileMessage;
   if (longMessage) showcaseFields.longMessage = longMessage;
+  
 
   try {
 		let showcase = await Showcase.findById(req.params.id);
